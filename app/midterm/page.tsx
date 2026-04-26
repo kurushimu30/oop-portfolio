@@ -62,30 +62,6 @@ function Typewriter({ words }: { words: string[] }) {
 /* ─── Data Arrays ───────────────── */
 
 // Fixed: Added 'const quizzes' name to the floating array
-const quizzes = [
-  {
-    num: 1,
-    title: 'Java Fundamentals',
-    score: '25 / 30',
-    scoreColor: 'text-emerald-400',
-    badgeBg: 'bg-emerald-500/12 border-emerald-500/25',
-    focus: 'Core Syntax · Data Handling · Information Structures',
-    reflection: `Having a background in C#, the transition was relatively smooth. However, the quiz highlighted the importance of mastering Java-specific data handling and basic information structures from the ground up — subtle differences in type casting and default values tripped me up.`,
-    noticeType: 'f2f',
-    notice: 'Assessment conducted face-to-face. Hardcopy retained by instructor.',
-  },
-  {
-    num: 2,
-    title: 'Arrays & Methods',
-    score: '41 / 50',
-    scoreColor: 'text-indigo-400',
-    badgeBg: 'bg-indigo-500/12 border-indigo-500/25',
-    focus: '2D Arrays · Method Signatures · Scanner Input · Short-Circuit Logic',
-    reflection: `I navigated complex topics such as Short-Circuit Logic and Scanner resource management. Minor errors in method execution and switch-case data types provided a pivotal learning moment regarding Java's strict type-checking requirements.`,
-    noticeType: 'online',
-    notice: 'Online assessment. Certain automated grading discrepancies remain under instructor review.',
-  },
-]
 
 const quiz2Data = [
   { status: 'correct', q: 'When working with arrays, can accessing an index that does not exist lead to a runtime error?', a: 'True', exp: 'Accessing an invalid index throws an ArrayIndexOutOfBoundsException.' },
