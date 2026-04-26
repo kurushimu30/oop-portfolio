@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-base: #0d1117;
+    --bg-surface: #161b27;
+    --bg-card: #1c2333;
+    --bg-card-hover: #1f2840;
+    --border: rgba(99, 120, 170, 0.15);
+    --border-hover: rgba(99, 120, 170, 0.3);
+    --accent: #6366f1;
+    --accent-soft: rgba(99, 102, 241, 0.12);
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    --text-primary: #e6edf3;
+    --text-secondary: #8b92a8;
+    --text-muted: #4a5568;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-mono-code {
+    font-family: var(--mono);
+  }
+
+  /* --- HIGH-VISIBILITY SYSTEMATIC GRID --- */
+  .grid-pattern {
+    /* 0.6 opacity and 1.5px size makes it pop on dark monitors */
+    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.6) 1.5px, transparent 1.5px);
+    background-size: 35px 35px;
+    background-attachment: fixed;
+  }
+
+  /* Midnight hero gradient */
+  .hero-gradient {
+    background: radial-gradient(ellipse 80% 60% at 50% -10%,
+      rgba(99, 102, 241, 0.25) 0%,
+      rgba(139, 92, 246, 0.12) 40%,
+      transparent 70%),
+      var(--bg-base);
+  }
+
+  /* --- UPGRADED GLASS CARD --- */
+  .glass-card {
+    background: rgba(15, 23, 42, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card:hover {
+    border-color: var(--border-hover) !important;
+    background: rgba(31, 40, 64, 0.9) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Ensure the cursor light is actually visible */
+  .bg-indigo-500\/20 {
+    background-color: rgba(99, 102, 241, 0.2) !important;
+  }
+
+  /* Syntax highlight token colors (Keep these for your code blocks!) */
+  .token-kw   { color: #c678dd; }
+  .token-cls  { color: #e5c07b; }
+  .token-fn   { color: #61afef; }
+  .token-str  { color: #98c379; }
+  .token-num  { color: #d19a66; }
+  .token-cm   { color: #5c6370; font-style: italic; }
+  .token-var  { color: #e06c75; }
+
+  /* Skill bar animation */
+  @keyframes grow-bar {
+    from { width: 0%; }
+    to   { width: var(--bar-width); }
+  }
+
+  .skill-bar {
+    animation: grow-bar 1.2s ease-out forwards;
+    width: var(--bar-width);
+  }
+
+  /* Ping dot for active nav */
+  @keyframes ping-dot {
+    75%, 100% { transform: scale(2); opacity: 0; }
+  }
+
+  .animate-ping {
+    animation: ping-dot 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Underline decoration for section headings */
+  .section-underline::after {
+    content: ' ——.';
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.9em;
+  }
+
+  /* Score badge */
+  .score-badge {
+    font-family: var(--mono);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-glow);
+    color: #a5b4fc;
+  }
+
+  /* Timeline connector */
+  .timeline-line {
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+}
+
+/* Custom Scrollbar for Terminal Logs */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
