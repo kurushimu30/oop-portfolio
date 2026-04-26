@@ -141,7 +141,7 @@ export default function Home() {
               { val: '2', label: 'Quizzes', sub: 'Completed' },
               { val: '3', label: 'Seatworks', sub: 'Completed' },
               { val: '5', label: 'Activities', sub: 'Completed' },
-            ].map((s, i) => (
+            ].map((s) => (
               <motion.div 
                 key={s.label}
                 whileHover={{ y: -5, borderColor: 'rgba(99, 102, 241, 0.4)' }}
